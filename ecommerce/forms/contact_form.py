@@ -28,3 +28,8 @@ class ContactForm(forms.Form):
             }
         )
     )
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if not "@" in email:
+            raise forms.ValidationError("O email precisa ser válido")
+        return email
