@@ -21,6 +21,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('ecommerce.urls')),
+    path('produtos/', include('product.urls')),
     path('admin/', admin.site.urls),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
