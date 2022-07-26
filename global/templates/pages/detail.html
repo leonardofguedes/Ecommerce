@@ -1,6 +1,10 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
 {{ product.title }}
 {{ product.price }}
 {{ product.description }}
 {% if product.image %}
     <img src='{{ product.image.url }}' class='img-fluid' />
 {% endif %}
+{% endblock %}
