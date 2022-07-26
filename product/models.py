@@ -19,7 +19,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d/', null=True, blank=True, default='')
     published = models.BooleanField(default=False)
     on_top = models.BooleanField(default=False)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, null=True)
 
     def __str__(self):
         return self.title
@@ -28,9 +28,10 @@ class Product(models.Model):
         if not self.slug:
             slug = f'{slugify(self.title)}'+f'{self.pk}'
             self.slug = slug
-
         return super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return f'/produtos/{self.slug}/'
 
 
 
