@@ -1,4 +1,8 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
 {% for produto in produtos %}
     <a href="{{produto.get_absolute_url }}">{{ produto.title }}</a>
 {% endfor %}
+{% endblock %}
 
