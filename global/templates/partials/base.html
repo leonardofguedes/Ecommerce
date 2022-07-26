@@ -1,0 +1,11 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+{% include 'partials/head.html' %}
+
+    <body>
+
+    {% include 'partials/js.html' %}
+    {% block content %}{% endblock %}
+    </body>
+</html>
