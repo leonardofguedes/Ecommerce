@@ -6,7 +6,8 @@ from .models import Product
 def product_list_view(request):
     products = Product.objects.all()
     context = {
-        'produtos': products
+        'produtos': products,
+        'title': 'PROVISÓRIO1'
     }
     return render(request, "pages/products_list.html", context)
 
@@ -18,5 +19,6 @@ def detail_view(request, slug):
         })
     else:
         return render(request, "pages/detail.html", context={
-            'product': product
+            'product': product,
+            'title': 'PROVISÓRIO2',
         })
