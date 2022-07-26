@@ -8,6 +8,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d/', null=True, blank=True, default='')
     published = models.BooleanField(default=False)
     on_top = models.BooleanField(default=False)
+    slug = models.SlugField
 
     def __str__(self):
         return self.title
