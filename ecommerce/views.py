@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms.contact_form import ContactForm
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, logout, login, get_user_model
 from .forms.login_form import LoginForm
 from .forms.register_form import RegisterForm
 
@@ -45,6 +45,12 @@ def login_view(request):
         else:
             print('Login Inválido')
     return render(request, "pages/login.html", context)
+
+def logout_page(request):
+    logout(request)
+    return render(request, "pages/logout.html", context={
+        'content': 'Você efetuou o logout com sucesso'
+    })
 
 
 def register_page(request):
