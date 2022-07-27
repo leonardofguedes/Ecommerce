@@ -3,7 +3,7 @@
 {% block content %}
 {{ product.title }}
 {{ product.price }}
-{{ product.description }}
+{{ product.description|linebreaks }}
 {% if product.image %}
     <img src='{{ product.image.url }}' class='img-fluid' />
 {% endif %}
