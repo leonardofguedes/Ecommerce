@@ -1,8 +1,15 @@
 {% extends 'partials/base.html' %}
 
 {% block content %}
-{% for produto in produtos %}
-    <a href="{{produto.get_absolute_url }}">{{ produto.title }}</a>
-{% endfor %}
-{% endblock %}
+<div class="container">
+    <div class="row">
+        {% for produto in produtos %}
+            <div class="col">
+                {% include 'partials/card.html' %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
 
