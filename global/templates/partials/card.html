@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  {% if produto.image %}
+    <a href="{{ produto.get_absolute_url }}">
+      <img src="{{ produto.image.url }}" class="card-img-top" alt="produto.title" logo>
+    </a>
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{ produto.title }}</h5>
+    <p class="card-text">{{ produto.description }}</p>
+    <a href="{{ produto.get_absolute_url }}" class="btn btn-primary">Detalhes</a>
+  </div>
+</div>
