@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 
+
 class Product(models.Model):
     CATEGO = (
         ('Vestuário', 'Vestuário'),
@@ -20,6 +21,7 @@ class Product(models.Model):
     published = models.BooleanField(default=False)
     on_top = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
@@ -33,6 +35,7 @@ class Product(models.Model):
     def get_absolute_url(self):
         #return f'/produtos/{self.slug}/'
         return reverse("detail", kwargs={"slug":self.slug})
+
 
 
 
