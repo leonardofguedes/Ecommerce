@@ -1,0 +1,12 @@
+{% extends "partials/base.html" %}
+{% block content %}
+        <div class="main-content main-content-list container">
+        {% for produto in products %}
+            {% include 'partials/card.html' %}
+        {% empty %}
+            <div class="center m-y">
+                <h1>O produto não foi encontrado 🥲</h1>
+            </div>
+        {% endfor %}
+        </div>
+{% endblock content %}
