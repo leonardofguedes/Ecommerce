@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-
+from django.urls import reverse
 
 class Product(models.Model):
     CATEGO = (
@@ -31,7 +31,8 @@ class Product(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return f'/produtos/{self.slug}/'
+        #return f'/produtos/{self.slug}/'
+        return reverse("detail", kwargs={"slug":self.slug})
 
 
 
