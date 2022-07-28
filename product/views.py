@@ -9,7 +9,7 @@ from .models import Product
 def product_list_view(request):
     products = Product.objects.all()
     context = {
-        'produtos': products,
+        'products': products,
         'title': 'PROVISÓRIO1'
     }
     return render(request, "pages/products_list.html", context)
