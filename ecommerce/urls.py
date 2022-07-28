@@ -15,6 +15,8 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_page, name='logout'),
     path('register/', register_page, name='register'),
+    path('register/guest/', guest_register_view, name='guest_register'),
     path('cart/', cart, name='cart'),
-    path('cart-update', cart_update, name='update')
+    path('cart-update', cart_update, name='update'),
+    path('checkout/', checkout_home, name='checkout'),
 ]
