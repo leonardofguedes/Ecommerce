@@ -3,6 +3,43 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 
+class ProductQuerySet(models.query.QuerySet):
+
+    def active(self):
+        return self.filter(active=True)
+
+    def featured(self):
+        return self.filter(featured=True, active=True)
+
+    def search(self, query):
+        lookups = (Q(title__contains=query) |
+                   Q(description__contains=query) |
+                   Q(price__contains=query))
+        return self.filter(lookups).distinct()
+
+
+class ProductManager(models.Manager):
+
+    def get_queryset(self):
+        return ProductQuerySet(self.model, using=self._db)
+
+    def all(self):
+        return self.get_queryset().active()
+
+    def featured(self):
+        # self.get_queryset().filter(featured = True)
+        return self.get_queryset().featured()
+
+    def get_by_id(self, id):
+        qs = self.get_queryset().filter(id=id)
+        if qs.count() == 1:
+            return qs.first()
+        return None
+
+    def search(self, query):
+        return self.get_queryset().active().search(query)
+
+
 class Product(models.Model):
     CATEGO = (
         ('Vestuário', 'Vestuário'),
@@ -35,7 +72,4 @@ class Product(models.Model):
     def get_absolute_url(self):
         #return f'/produtos/{self.slug}/'
         return reverse("detail", kwargs={"slug":self.slug})
-
-
-
 
