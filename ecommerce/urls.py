@@ -5,6 +5,7 @@ from ecommerce.views.home_page import *
 from ecommerce.views.login import *
 from ecommerce.views.logout import *
 from ecommerce.views.register import *
+from ecommerce.views.cart import *
 
 
 urlpatterns = [
@@ -14,4 +15,6 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_page, name='logout'),
     path('register/', register_page, name='register'),
+    path('cart/', cart, name='cart'),
+    path('cart-update', cart_update, name='update')
 ]
