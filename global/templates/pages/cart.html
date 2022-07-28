@@ -7,7 +7,7 @@
       <tr>
         <th>#</th>
         <th>Nome</th>
-        <th>Preço/th>
+        <th>Preço</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +28,10 @@
       <tr>
         <td colspan="2"></td>
         <td><b>Total</b> {{ cart.total }}</td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+        <td><a class='btn btn-lg btn-success' href='{% url "checkout" %}'>Conferir compra</a></td>
       </tr>
     </tbody>
   </table>
