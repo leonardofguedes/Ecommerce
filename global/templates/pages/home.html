@@ -1,7 +1,11 @@
 {% extends 'partials/base.html' %}
 {% load static %}
 {% block content %}
-{% block base_head %}<link rel='stylesheet' href='{% static "css/home.css" %}'>{% endblock base_head %}
+
+{% block base_head %}
+    <link rel='stylesheet' href='{% static "css/home.css" %}'>
+{% endblock %}
+
 <div class='text-center'>
             <h1>{{ title }}</h1>
             <p>{{ content }}</p>
