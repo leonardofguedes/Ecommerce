@@ -42,11 +42,11 @@ class Urls(TestCase):
         update_url = reverse('update')
         self.assertEqual(update_url, '/update/')
 
-
+    def checkout_url(self):
+        checkout_url = reverse('checkout')
+        self.assertEqual(checkout_url, '/checkout/')
     """
     
-    
-    path('checkout/', checkout_home, name='checkout'),
     path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
     path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
     path('checkout/success/', checkout_done_view, name='success'),
