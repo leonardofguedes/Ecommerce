@@ -53,7 +53,7 @@ class Urls(TestCase):
     def checkout_address_reuse_url(self):
         address_reuse_url = reverse('checkout_address_reuse')
         self.assertEqual(address_reuse_url, '/checkout/address/reuse/' )
-    """
-    
-    path('checkout/success/', checkout_done_view, name='success'),
-    """
+
+    def checkout_success_url(self):
+        checkout_success = reverse('success')
+        self.assertEqual(checkout_success, '/checkout/success/')
