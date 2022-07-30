@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 
-class Urls(TestCase):
+class ProductUrls(TestCase):
     def test_products_list_url(self):
         product_url = reverse('products')
         self.assertEqual(product_url, '/produtos/')

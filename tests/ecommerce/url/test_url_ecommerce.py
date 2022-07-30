@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 
-class Urls(TestCase):
+
+class EcommerceUrls(TestCase):
     def test_home_url(self):
         home_url = reverse('home')
         self.assertEqual(home_url, '/')
