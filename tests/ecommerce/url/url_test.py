@@ -13,3 +13,7 @@ class Urls(TestCase):
     def test_contact_url(self):
         contact_url = reverse('contact')
         self.assertEqual(contact_url, '/contato/')
+
+    def test_login_url(self):
+        login_url = reverse('login')
+        self.assertEqual(login_url, '/login/')
