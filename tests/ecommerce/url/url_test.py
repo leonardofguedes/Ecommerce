@@ -34,9 +34,12 @@ class Urls(TestCase):
         api_cart_url = reverse('api-cart')
         self.assertEqual(api_cart_url, '/api/cart/')
 
+    def test_cart_url(self):
+        cart_url = reverse('cart')
+        self.assertEqual(cart_url, '/cart/')
+
     """
     
-    path('cart/', cart, name='cart'),
     path('update/', cart_update, name='update'),
     path('checkout/', checkout_home, name='checkout'),
     path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
