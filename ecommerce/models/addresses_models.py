@@ -1,5 +1,5 @@
 from django.db import models
-from .billing_models import BillingProfile
+from ecommerce.models.billing_models import BillingProfile
 
 
 ADDRESS_TYPES = (
