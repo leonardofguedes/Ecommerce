@@ -29,3 +29,17 @@ class Urls(TestCase):
     def test_guest_register_url(self):
         guest_register_url = reverse('guest_register')
         self.assertEqual(guest_register_url, '/register/guest/')
+
+    def test_api_cart_url(self):
+        api_cart_url = reverse('api-cart')
+        self.assertEqual(api_cart_url, '/api/cart/')
+
+    """
+    
+    path('cart/', cart, name='cart'),
+    path('update/', cart_update, name='update'),
+    path('checkout/', checkout_home, name='checkout'),
+    path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
+    path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
+    path('checkout/success/', checkout_done_view, name='success'),
+    """
