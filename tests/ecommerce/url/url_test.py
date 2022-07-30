@@ -17,3 +17,7 @@ class Urls(TestCase):
     def test_login_url(self):
         login_url = reverse('login')
         self.assertEqual(login_url, '/login/')
+
+    def test_logout_url(self):
+        logout_url = reverse('logout')
+        self.assertEqual(logout_url, '/logout/')
