@@ -45,9 +45,12 @@ class Urls(TestCase):
     def checkout_url(self):
         checkout_url = reverse('checkout')
         self.assertEqual(checkout_url, '/checkout/')
+
+    def checkout_address_url(self):
+        checkout_address = reverse('checkout_address_create')
+        self.assertEqual(checkout_address, '/checkout/address/create/')
     """
     
-    path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
     path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
     path('checkout/success/', checkout_done_view, name='success'),
     """
