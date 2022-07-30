@@ -38,22 +38,22 @@ class Urls(TestCase):
         cart_url = reverse('cart')
         self.assertEqual(cart_url, '/cart/')
 
-    def update_url(self):
+    def test_update_url(self):
         update_url = reverse('update')
         self.assertEqual(update_url, '/update/')
 
-    def checkout_url(self):
+    def test_checkout_url(self):
         checkout_url = reverse('checkout')
         self.assertEqual(checkout_url, '/checkout/')
 
-    def checkout_address_url(self):
+    def test_checkout_address_url(self):
         checkout_address = reverse('checkout_address_create')
         self.assertEqual(checkout_address, '/checkout/address/create/')
 
-    def checkout_address_reuse_url(self):
+    def test_checkout_address_reuse_url(self):
         address_reuse_url = reverse('checkout_address_reuse')
         self.assertEqual(address_reuse_url, '/checkout/address/reuse/' )
 
-    def checkout_success_url(self):
+    def test_checkout_success_url(self):
         checkout_success = reverse('success')
         self.assertEqual(checkout_success, '/checkout/success/')
