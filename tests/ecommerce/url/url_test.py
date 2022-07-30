@@ -25,3 +25,7 @@ class Urls(TestCase):
     def test_register_url(self):
         register_url = reverse('register')
         self.assertEqual(register_url, '/register/')
+
+    def test_guest_register_url(self):
+        guest_register_url = reverse('guest_register')
+        self.assertEqual(guest_register_url, '/register/guest/')
