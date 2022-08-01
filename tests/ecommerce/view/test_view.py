@@ -16,6 +16,9 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('contact'))
         self.assertIs(view.func, contact)
 
+    def test_login_view(self):
+        view = resolve(reverse('login'))
+        self.assertIs(view.func, login_view)
 
 """
 urlpatterns = [
