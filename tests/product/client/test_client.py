@@ -16,10 +16,6 @@ class ProductClientTest(TestCase):
         response = self.client.get(reverse('detail', kwargs={'slug': 'teste'}))
         self.assertEqual(response.status_code, 200)
 
-"""
-urlpatterns = [
-    
-    path('search/', search, name='search'),
-    path('<slug:slug>/', detail_view, name='detail'),
-]
-"""
+    def test_products_list_template(self):
+        response = self.client.get(reverse('products'))
+        self.assertTemplateUsed(response, 'pages/products_list.html')
