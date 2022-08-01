@@ -11,9 +11,14 @@ class EcommerceViewTest(TestCase):
     def test_about_view(self):
         view = resolve(reverse('about'))
         self.assertIs(view.func, about)
+
+    def test_contato_view(self):
+        view = resolve(reverse('contact'))
+        self.assertIs(view.func, contact)
+
+
 """
 urlpatterns = [
-    path('contato/', contact, name='contact'),
     path('login/', login_view, name='login'),
     path('logout/', logout_page, name='logout'),
     path('register/', register_page, name='register'),
