@@ -24,6 +24,10 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('logout'))
         self.assertIs(view.func, logout_page)
 
+    def test_register_view(self):
+        view = resolve(reverse('register'))
+        self.assertIs(view.func, register_page)
+
 """
 urlpatterns = [
     path('register/', register_page, name='register'),
