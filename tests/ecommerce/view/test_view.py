@@ -28,9 +28,9 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('register'))
         self.assertIs(view.func, register_page)
 
+
 """
 urlpatterns = [
-    path('register/', register_page, name='register'),
     path('register/guest/', guest_register_view, name='guest_register'),
     path('api/cart/', cart_detail_api_view, name='api-cart'),
     path('cart/', cart, name='cart'),
