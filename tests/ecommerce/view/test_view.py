@@ -48,9 +48,11 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('checkout'))
         self.assertIs(view.func, checkout_home)
 
-    def test_addresse_create_view(self):
+    def test_address_create_view(self):
         view = resolve(reverse('checkout_address_create'))
         self.assertIs(view.func, checkout_address_create_view)
+
+
 
 """
 urlpatterns = [
