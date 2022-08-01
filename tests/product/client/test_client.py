@@ -8,6 +8,13 @@ class ProductClientTest(TestCase):
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
 
+    def test_search_status_with_no_product_registered(self):
+        response = self.client.get(reverse('search'))
+        self.assertEqual(response.status_code, 404)
+
+    def test_detail_with_no_product_registered(self):
+        response = self.client.get(reverse('detail', kwargs={'slug': 'teste'}))
+        self.assertEqual(response.status_code, 200)
 
 """
 urlpatterns = [
