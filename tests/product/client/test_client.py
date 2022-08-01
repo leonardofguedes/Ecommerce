@@ -23,3 +23,7 @@ class ProductClientTest(TestCase):
     def test_detail_template(self):
         response = self.client.get(reverse('detail', kwargs={'slug': 'teste-slug'}))
         self.assertTemplateUsed(response, 'pages/detail.html')
+
+    def test_search_template(self):
+        response = self.client.get(reverse('search') + '?q=teste')
+        self.assertTemplateUsed(response, 'pages/search.html')
