@@ -20,10 +20,12 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('login'))
         self.assertIs(view.func, login_view)
 
+    def test_logout_view(self):
+        view = resolve(reverse('logout'))
+        self.assertIs(view.func, logout_page)
+
 """
 urlpatterns = [
-    path('login/', login_view, name='login'),
-    path('logout/', logout_page, name='logout'),
     path('register/', register_page, name='register'),
     path('register/guest/', guest_register_view, name='guest_register'),
     path('api/cart/', cart_detail_api_view, name='api-cart'),
