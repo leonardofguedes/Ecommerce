@@ -41,3 +41,18 @@ class ProductClientTest(ProductTestBase):
         search_url = reverse('search')
         response1 = self.client.get(f'{search_url}?q=deteriorado')
         self.assertIn(product, response1.context['products'])
+
+    def test_search_with_two_products_made(self):
+        title1 = 'produto deteriorado'
+        slug1 = 'slug-teste-1'
+        title2 = 'produto amarelo'
+        slug2 = 'slug-teste-2'
+        product1 = self.make_product(title=title1, slug=slug1)
+        product2 = self.make_product(title=title2, slug=slug2)
+        search_url = reverse('search')
+        response1 = self.client.get(f'{search_url}?q={title1}')
+        response2 = self.client.get(f'{search_url}?q={title2}')
+        response3 = self.client.get(f'{search_url}?q=produto')
+        self.assertIn(product1, response1.context['products'])
+        self.assertIn(product2, response2.context['products'])
+        self.assertIn(product2, response3.context['products'])
