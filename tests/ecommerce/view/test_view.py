@@ -36,6 +36,10 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('api-cart'))
         self.assertIs(view.func, cart_detail_api_view)
 
+    def test_cart_view(self):
+        view = resolve(reverse('cart'))
+        self.assertIs(view.func, cart)
+
 """
 urlpatterns = [
     
