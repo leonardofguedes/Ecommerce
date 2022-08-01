@@ -12,6 +12,6 @@ class ProductViewTest(TestCase):
         view = resolve(reverse('search'))
         self.assertIs(view.func, search)
 
-urlpatterns = [
-    path('<slug:slug>/', detail_view, name='detail'),
-]
+    def test_detail_view(self):
+        view = resolve(reverse('detail', kwargs={'slug': 'teste-teste'}))
+        self.assertIs(view.func, detail_view)
