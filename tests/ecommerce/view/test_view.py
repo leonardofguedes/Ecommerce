@@ -52,6 +52,10 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('checkout_address_create'))
         self.assertIs(view.func, checkout_address_create_view)
 
+    def test_address_reuse_view(self):
+        view = resolve(reverse('checkout_address_reuse'))
+        self.assertIs(view.func, checkout_address_reuse_view)
+
 
 
 """
