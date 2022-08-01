@@ -28,6 +28,9 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('register'))
         self.assertIs(view.func, register_page)
 
+    def test_register_guest_view(self):
+        view = resolve(reverse('guest_register'))
+        self.assertIs(view.func, guest_register_view)
 
 """
 urlpatterns = [
