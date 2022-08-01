@@ -56,3 +56,11 @@ class ProductClientTest(ProductTestBase):
         self.assertIn(product1, response1.context['products'])
         self.assertIn(product2, response2.context['products'])
         self.assertIn(product2, response3.context['products'])
+
+    def test_search_with_search_term_wrong(self):
+        product = self.make_product()
+        mensagem = 'O produto não foi encontrado'
+        search_url = reverse('search')
+        response1 = self.client.get(f'{search_url}?q=amarelo')
+        content = response1.content.decode('utf-8')
+        self.assertIn(mensagem, content)
