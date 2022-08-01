@@ -6,7 +6,7 @@ from ecommerce.urls import *
 class EcommerceViewTest(TestCase):
     def test_homepage_view(self):
         view = resolve(reverse('home'))
-        self.assertIs(view.func, home_page )
+        self.assertIs(view.func, home_page)
 
     def test_about_view(self):
         view = resolve(reverse('about'))
@@ -56,11 +56,6 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('checkout_address_reuse'))
         self.assertIs(view.func, checkout_address_reuse_view)
 
-
-
-"""
-urlpatterns = [
-    path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
-    path('checkout/success/', checkout_done_view, name='success'),
-]
-"""
+    def test_checkout_sucess_view(self):
+        view = resolve(reverse('success'))
+        self.assertIs(view.func, checkout_done_view)
