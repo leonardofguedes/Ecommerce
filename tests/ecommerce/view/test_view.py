@@ -40,11 +40,12 @@ class EcommerceViewTest(TestCase):
         view = resolve(reverse('cart'))
         self.assertIs(view.func, cart)
 
+    def test_update_view(self):
+        view = resolve(reverse('update'))
+        self.assertIs(view.func, cart_update)
+
 """
 urlpatterns = [
-    
-    path('cart/', cart, name='cart'),
-    path('update/', cart_update, name='update'),
     path('checkout/', checkout_home, name='checkout'),
     path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
     path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
