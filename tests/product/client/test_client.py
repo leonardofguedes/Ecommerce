@@ -30,6 +30,12 @@ class ProductClientTest(ProductTestBase):
         self.assertTemplateUsed(response, 'pages/search.html')
 
     # product made test
+    def test_products_list_with_product(self):
+        product = self.make_product()
+        list_url = reverse('products')
+        response = self.client.get(list_url)
+        self.assertIn(product, response.context['products'])
+
     def test_search_with_product(self):
         product = self.make_product()
         search_url = reverse('search')
