@@ -8,7 +8,8 @@ class ProductMixin:
                      category = 'Livros',
                      description = 'Descrição Teste',
                      price = 100,
-                     slug='Product-Slug-Test'
+                     slug='Product-Slug-Test',
+                     pk=2500
                      ):
         return Product.objects.create(
             title=title,
@@ -16,6 +17,7 @@ class ProductMixin:
             description=description,
             price=price,
             slug=slug,
+            pk=pk,
         )
 
     def make_more_products(self, qtd=10):
