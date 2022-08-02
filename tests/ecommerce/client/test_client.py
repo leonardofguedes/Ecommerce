@@ -28,10 +28,17 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('register'))
         self.assertEqual(response.status_code, 200)
 
+    def test_guest_register_status(self):
+        response = self.client.get(reverse('guest_register'))
+        self.assertEqual(response.status_code, 302)
+
+    def test_api_cart_status(self):
+        response = self.client.get(reverse('api-cart'))
+        self.assertEqual(response.status_code, 200)
+
+
     """
     
-    path('register/guest/', guest_register_view, name='guest_register'),
-    path('api/cart/', cart_detail_api_view, name='api-cart'),
     path('cart/', cart, name='cart'),
     path('update/', cart_update, name='update'),
     path('checkout/', checkout_home, name='checkout'),
