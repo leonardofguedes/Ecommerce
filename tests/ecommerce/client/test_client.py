@@ -36,6 +36,9 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('api-cart'))
         self.assertEqual(response.status_code, 200)
 
+    def test_cart_status(self):
+        response = self.client.get(reverse('cart'))
+        self.assertEqual(response.status_code, 200)
 
     """
     
