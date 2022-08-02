@@ -8,8 +8,11 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
 
+    def test_about_status(self):
+        response = self.client.get(reverse('about'))
+        self.assertEqual(response.status_code, 200)
+
     """
-    path('about/', about, name='about'),
     path('contato/', contact, name='contact'),
     path('login/', login_view, name='login'),
     path('logout/', logout_page, name='logout'),
