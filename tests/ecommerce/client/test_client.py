@@ -69,11 +69,16 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('contact'))
         self.assertTemplateUsed(response, 'pages/contact.html')
 
+    def test_login_template(self):
+        response = self.client.get(reverse('login'))
+        self.assertTemplateUsed(response, 'pages/login.html')
+
+    def test_logout_template(self):
+        response = self.client.get(reverse('logout'))
+        self.assertTemplateUsed(response, 'pages/logout.html')
+
 
         """
-        path('contato/', contact, name='contact'),
-        path('login/', login_view, name='login'),
-        path('logout/', logout_page, name='logout'),
         path('register/', register_page, name='register'),
         path('register/guest/', guest_register_view, name='guest_register'),
         path('api/cart/', cart_detail_api_view, name='api-cart'),
