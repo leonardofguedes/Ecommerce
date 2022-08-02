@@ -77,6 +77,10 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('logout'))
         self.assertTemplateUsed(response, 'pages/logout.html')
 
+    def test_register_template(self):
+        response = self.client.get(reverse('register'))
+        self.assertTemplateUsed(response, 'pages/register.html')
+
 
         """
         path('register/', register_page, name='register'),
