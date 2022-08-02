@@ -51,8 +51,8 @@ class EcommerceClientTest(TestCase):
     def test_create_status(self):
         response = self.client.get(reverse('checkout_address_create'))
         self.assertEqual(response.status_code, 302)
-    """
-    path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
-    path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
-    path('checkout/success/', checkout_done_view, name='success'),
-    """
+
+    def test_checkout_sucess_status(self):
+        response = self.client.get(reverse('success'))
+        self.assertEqual(response.status_code, 200)
+
