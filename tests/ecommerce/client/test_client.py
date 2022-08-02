@@ -19,6 +19,10 @@ class EcommerceClientTest(TestCase):
     def test_login_status(self):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
+
+    def test_logout_status(self):
+        response = self.client.get(reverse('logout'))
+        self.assertEqual(response.status_code, 200)
     """
     
     path('logout/', logout_page, name='logout'),
