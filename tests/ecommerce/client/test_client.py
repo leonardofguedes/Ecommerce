@@ -65,6 +65,11 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('about'))
         self.assertTemplateUsed(response, 'pages/about.html')
 
+    def test_contact_template(self):
+        response = self.client.get(reverse('contact'))
+        self.assertTemplateUsed(response, 'pages/contact.html')
+
+
         """
         path('contato/', contact, name='contact'),
         path('login/', login_view, name='login'),
