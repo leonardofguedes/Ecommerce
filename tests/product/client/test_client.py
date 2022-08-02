@@ -57,9 +57,10 @@ class ProductClientTest(ProductTestBase):
     def test_search_with_two_products_made(self):
         title1 = 'produto deteriorado'
         slug1 = 'slug-teste-1'
+        id1 = 2207
         title2 = 'produto amarelo'
         slug2 = 'slug-teste-2'
-        product1 = self.make_product(title=title1, slug=slug1)
+        product1 = self.make_product(title=title1, slug=slug1, pk=id1)
         product2 = self.make_product(title=title2, slug=slug2)
         search_url = reverse('search')
         response1 = self.client.get(f'{search_url}?q={title1}')
