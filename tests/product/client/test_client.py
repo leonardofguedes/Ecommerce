@@ -1,5 +1,4 @@
-from django.test import TestCase
-from django.urls import reverse, resolve
+from django.urls import reverse
 from tests.product.base_test.test_base_product import *
 
 
@@ -35,6 +34,13 @@ class ProductClientTest(ProductTestBase):
         list_url = reverse('products')
         response = self.client.get(list_url)
         self.assertIn(product, response.context['products'])
+
+    def test_products_list_content(self):
+        title = 'Produto Amarelo'
+        product = self.make_product(title=title)
+        response = self.client.get(reverse('products'))
+        content = response.content.decode('utf-8')
+        self.assertIn(title, content)
 
     def test_search_with_product(self):
         product = self.make_product()
