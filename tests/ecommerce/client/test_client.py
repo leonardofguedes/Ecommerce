@@ -40,11 +40,18 @@ class EcommerceClientTest(TestCase):
         response = self.client.get(reverse('cart'))
         self.assertEqual(response.status_code, 200)
 
+    def test_update_status(self):
+        response = self.client.get(reverse('update'))
+        self.assertEqual(response.status_code, 302)
+
+    def test_checkout_status(self):
+        response = self.client.get(reverse('checkout'))
+        self.assertEqual(response.status_code, 302)
+
+    def test_create_status(self):
+        response = self.client.get(reverse('checkout_address_create'))
+        self.assertEqual(response.status_code, 302)
     """
-    
-    path('cart/', cart, name='cart'),
-    path('update/', cart_update, name='update'),
-    path('checkout/', checkout_home, name='checkout'),
     path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
     path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
     path('checkout/success/', checkout_done_view, name='success'),
