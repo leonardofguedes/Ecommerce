@@ -16,3 +16,10 @@ class ProductModelTeste(ProductTestBase):
         setattr(self.product, field, 'A' * (max_lenght + 1))
         with self.assertRaises(ValidationError):
             self.product.full_clean()
+
+    def test_product_string(self):
+        needed = 'Representation Test'
+        self.product.title = needed
+        self.product.full_clean()
+        self.product.save()
+        self.assertEqual(str(self.product), needed)
