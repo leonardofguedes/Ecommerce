@@ -3,6 +3,7 @@ from ecommerce.forms.contact_form import ContactForm
 from ecommerce.forms.register_form import RegisterForm
 from ecommerce.forms.login_form import LoginForm
 from ecommerce.forms.addresses_form import AddressForm
+from ecommerce.forms.account_form import GuestForm
 from parameterized import parameterized
 
 
@@ -32,7 +33,7 @@ class RegisterFormUniTest(TestCase):
 class LoginFormUniTest(TestCase):
     @parameterized.expand([
         ('password', {'required': 'This field is required.'}),
-        ('username', {'required': 'This field is required.'}),])
+        ('username', {'required': 'This field is required.'}), ])
     def test_fields_error_messages(self, field, needed):
         form = LoginForm()
         current = form[field].field.error_messages
@@ -48,5 +49,14 @@ class AddressFormUniTest(TestCase):
         ('postal_code', {'required': 'This field is required.'}), ])
     def test_fields_error_messages(self, field, needed):
         form = AddressForm()
+        current = form[field].field.error_messages
+        self.assertEqual(current, needed)
+
+
+class AccountFormUnitest(TestCase):
+    @parameterized.expand([
+        ('email', {'required': 'This field is required.'}), ])
+    def test_fields_error_messages(self, field, needed):
+        form = GuestForm()
         current = form[field].field.error_messages
         self.assertEqual(current, needed)
