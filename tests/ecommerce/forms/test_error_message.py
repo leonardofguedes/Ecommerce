@@ -2,6 +2,7 @@ from unittest import TestCase
 from ecommerce.forms.contact_form import ContactForm
 from ecommerce.forms.register_form import RegisterForm
 from ecommerce.forms.login_form import LoginForm
+from ecommerce.forms.addresses_form import AddressForm
 from parameterized import parameterized
 
 
@@ -34,5 +35,18 @@ class LoginFormUniTest(TestCase):
         ('username', {'required': 'This field is required.'}),])
     def test_fields_error_messages(self, field, needed):
         form = LoginForm()
+        current = form[field].field.error_messages
+        self.assertEqual(current, needed)
+
+
+class AddressFormUniTest(TestCase):
+    @parameterized.expand([
+        ('address_line_1', {'required': 'This field is required.'}),
+        ('address_line_2', {'required': 'This field is required.'}),
+        ('city', {'required': 'This field is required.'}),
+        ('state', {'required': 'This field is required.'}),
+        ('postal_code', {'required': 'This field is required.'}), ])
+    def test_fields_error_messages(self, field, needed):
+        form = AddressForm()
         current = form[field].field.error_messages
         self.assertEqual(current, needed)
