@@ -1,5 +1,6 @@
 from django import forms
 
+
 class ContactForm(forms.Form):
     nome = forms.CharField(
         error_messages={'required':'Obrigatório o preenchimento do nome'},
